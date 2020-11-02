@@ -63,5 +63,43 @@ namespace Data.Repositories
             unitOfWork.Set<Track>().Add(track);
             unitOfWork.SaveChanges();
         }
+
+        public List<Track> GetAllTracks()
+        {
+            using (DataContext db = new DataContext())
+            {
+                return db.Tracks.Include(x=>x.Album).Include(x=>x.Genre).Include(x =>x.SongWriter).AsEnumerable().ToList();
+            }
+        }
+
+        public void EditTrack(Track track)
+        {
+            using (DataContext db = new DataContext())
+            {
+                var editsTrack = db.Tracks.Include(x=>x.SongWriter).Include(x=>x.Genre).Include(x=>x.Album).AsEnumerable().Where(x => x.TrackId.Equals(track.TrackId)).First();
+                db.Tracks.Remove(editsTrack);
+                db.SaveChanges();
+                unitOfWork.Set<Track>().Add(track);
+                unitOfWork.SaveChanges();
+            }
+        }
+
+        public Track GetTrackById(int id)
+        {
+            using (DataContext db = new DataContext())
+            {
+                return db.Tracks.Include(x => x.Album).Include(x=>x.Genre).Include(x=>x.SongWriter).AsEnumerable().Where(x => x.TrackId.Equals(id)).First();
+            }
+        }
+
+        public void DeleteTrack(int id)
+        {
+            using (DataContext db = new DataContext())
+            {
+                var deleteTrack = db.Tracks.Include(x => x.Album).Include(x => x.Genre).Include(x => x.SongWriter).AsEnumerable().Where(x => x.TrackId.Equals(id)).First();
+                db.Tracks.Remove(deleteTrack);
+                db.SaveChanges();
+            }
+        }
     }
 }

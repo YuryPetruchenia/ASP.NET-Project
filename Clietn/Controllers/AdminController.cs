@@ -4,6 +4,7 @@ using Client.Models.AdminViewModel;
 using Clietn.Models.AdminViewModel;
 using Clietn.PresentationService.Interface;
 using DomainLogic.Model;
+using Microsoft.Ajax.Utilities;
 
 namespace Clietn.Controllers
 {
@@ -139,6 +140,52 @@ namespace Clietn.Controllers
         public virtual ActionResult StartAdmin()
         {
             return View();
+        }
+
+        public virtual ActionResult Edit()
+        {
+            List<TrackAdminModel> allTrackAdmins = trackPresentationService.GetAllTracks();
+            return View(allTrackAdmins);
+        }
+
+        [HttpPost]
+        public virtual ActionResult EditTrackPost(TrackAdminModel trackAdminModel)
+        {
+            Track track = new Track()
+            {
+                Genre = genrePresentationService.GetGenreByName(trackAdminModel.Genre),
+                SongTitle = trackAdminModel.SongTitle,
+                SongWriter = songWriterPresentationService.GetSongWriterByName(trackAdminModel.SongWriter),
+                Album = albumPresentationService.GetAlbumByName(trackAdminModel.Album),
+                TrackId = trackAdminModel.TrackId
+            };
+            trackPresentationService.EditTrack(track);
+            return RedirectToAction("Edit");
+        }
+
+        [HttpGet]
+        public virtual ActionResult EditTrackGet (int id)
+        {
+            SelectList genres = new SelectList(genrePresentationService.GetAllGenre());
+            ViewBag.Genres = genres;
+
+            SelectList songWriters = new SelectList(songWriterPresentationService.GetAllSongWriters());
+            ViewBag.SongWriters = songWriters;
+
+            SelectList albums = new SelectList(albumPresentationService.GetAllAlbums());
+            ViewBag.Albums = albums;
+
+
+            var trackAdminModel = trackPresentationService.GetTrackById(id);
+
+            return View(trackAdminModel);
+        }
+        
+
+        public virtual ActionResult Delete (int id)
+        {
+            trackPresentationService.DeleteTrack(id);
+            return RedirectToAction("Edit");
         }
     }
 }

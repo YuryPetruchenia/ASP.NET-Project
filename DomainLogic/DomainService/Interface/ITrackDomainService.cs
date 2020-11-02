@@ -16,5 +16,13 @@ namespace DomainLogic.DomainService.Interface
         List<Track> GetTracksByGenre(string Genres);
 
         void AddTrackToDB(Track track);
+
+        List<Track> GetAllTracks();
+
+        Track GetTrackById(int id);
+
+        void EditTrack(Track track);
+
+        void DeleteTrack(int id);
     }
 }

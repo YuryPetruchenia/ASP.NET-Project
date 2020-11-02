@@ -19,6 +19,26 @@ namespace DomainLogic.DomainService
             trackRepository.AddTrackToDB(track);
         }
 
+        public void DeleteTrack(int id)
+        {
+            trackRepository.DeleteTrack(id);
+        }
+
+        public void EditTrack(Track track)
+        {
+            trackRepository.EditTrack(track);
+        }
+
+        public List<Track> GetAllTracks()
+        {
+            return trackRepository.GetAllTracks();
+        }
+
+        public Track GetTrackById(int id)
+        {
+            return trackRepository.GetTrackById(id);
+        }
+
         public  List<Track> GetTrackByTitle(string TrackTitle)
         {
              return  trackRepository.GetTracksByTitle(TrackTitle);

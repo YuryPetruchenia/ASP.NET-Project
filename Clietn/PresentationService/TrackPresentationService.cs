@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using AutoMapper;
 using Clietn.App_Start;
+using Clietn.Models.AdminViewModel;
 using Clietn.Models.ViewModels;
 using Clietn.PresentationService.Interface;
 using DomainLogic.DomainService.Interface;
@@ -28,6 +29,23 @@ namespace Clietn.PresentationService
             trackDomainService.AddTrackToDB(track);
         }
 
+        public void DeleteTrack(int id)
+        {
+            trackDomainService.DeleteTrack(id);
+        }
+
+        public void EditTrack(Track track)
+        {
+            trackDomainService.EditTrack(track);
+        }
+
+        public List<TrackAdminModel> GetAllTracks()
+        {
+            var e = trackDomainService.GetAllTracks();
+            var res = mappingProfile.Mapper.Map<List<Track>, List<TrackAdminModel>>(e);
+            return res;
+        }
+
         public List<TrackViewModel> GetTrack(string trackSearch)
         {
             var tracksByAlbum = trackDomainService.GetTracksByAlbum(trackSearch);
@@ -36,6 +54,13 @@ namespace Clietn.PresentationService
             var tracks = tracksByAlbum.Union(tracksBySongWriter).Union(tracksByTitle).ToList();
             var viewTracks = mappingProfile.Mapper.Map<List<Track>, List<TrackViewModel>>(tracks);
             return viewTracks;
+        }
+
+        public TrackAdminModel GetTrackById(int id)
+        {
+            var viewTrack = trackDomainService.GetTrackById(id);
+            var res = mappingProfile.Mapper.Map<Track, TrackAdminModel>(viewTrack);
+            return res;
         }
 
         public List<TrackViewModel> GetTracksByAlbum(string album)

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Clietn.Models.AdminViewModel;
 using Clietn.Models.ViewModels;
 using DomainLogic.Model;
 
@@ -24,6 +25,11 @@ namespace Clietn.App_Start
                 cfg.CreateMap<SongWriter, AutorViewModel>()
                   .ForMember("AutorId", opt => opt.MapFrom(c => c.SongWriterId))
                     .ForMember("AutorName", opt => opt.MapFrom(c => c.Name));
+                cfg.CreateMap<Track, TrackAdminModel>()
+                   .ForMember("SongWriter", opt => opt.MapFrom(c => c.SongWriter.Name))
+                   .ForMember("SongTitle", opt => opt.MapFrom(c => c.SongTitle))
+                   .ForMember("Genre", opt => opt.MapFrom(c => c.Genre.Name))
+                   .ForMember("Album", opt => opt.MapFrom(c => c.Album.AlbumTitle));
             });
             Mapper = config.CreateMapper();
         }
