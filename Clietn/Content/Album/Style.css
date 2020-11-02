@@ -1,0 +1,38 @@
+﻿button.album {
+    font-size: 18px;
+    margin: 40px;
+    width: 200px;
+    height: 200px;
+    background-color: darkslateblue;
+    font-family: monospace;    
+    border-radius: 10px;
+    position: static;
+}
+
+img.bottom-img {
+    z-index: -100;
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    transform: translate(-43%, -50%);
+    transition: all 0.5s ease;
+}
+
+button.album:hover img.bottom-img {
+    transform: translate(-43%, -70%);
+    transition: all 0.5s ease;
+}
+
+@font-face {
+    font-family: monospace;
+    src: url(Fonts/Monospace.ttf); /* Путь к файлу со шрифтом */
+}
+
+h2{
+    color: white;
+    text-shadow: darkslateblue 0 0 2px;
+}
+
+p {
+    color: white;
+}

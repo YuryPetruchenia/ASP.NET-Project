@@ -1,0 +1,24 @@
+﻿@model List<Clietn.Models.ViewModels.TrackViewModel>
+@{
+    ViewBag.Title = "GetUserPlayList";
+}
+
+<h2>Your PlayList</h2>
+
+@foreach (var item in Model)
+{
+    <div class="main">
+
+        <div class="playButton">
+            @Ajax.ActionLink("Play", "PlayerPartial", "Track", new { songTitle =  item.SongTitle},  new AjaxOptions { UpdateTargetId = "player" });
+        </div>
+        <div class="songWriter">@item.SongWriter &nbsp;—&nbsp; </div>
+        <div class="songTitle">@item.SongTitle</div>
+
+    </div>
+}
+
+<div id="player">
+
+</div>
+<link href="@Url.Content("~/Content/TrackStyle.css")" rel="stylesheet" type="text/css" />

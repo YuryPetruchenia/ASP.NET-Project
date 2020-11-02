@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7CD22FBB-1BEF-4C14-9FB8-7150A726313E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Data</RootNamespace>
+    <AssemblyName>Data</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\..\..\StyleCop.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configurations\MusicConfigurations\AlbumConfigurations.cs" />
+    <Compile Include="Configurations\MusicConfigurations\SongWriterConfigurations.cs" />
+    <Compile Include="Configurations\MusicConfigurations\TrackConfigurations.cs" />
+    <Compile Include="Configurations\MusicConfigurations\SubscriptionConfigurations.cs" />
+    <Compile Include="Context\IDataContext.cs" />
+    <Compile Include="Context\DataContext.cs" />
+    <Compile Include="Migrations\202010151445469_AddAFirstData.cs" />
+    <Compile Include="Migrations\202010151445469_AddAFirstData.designer.cs">
+      <DependentUpon>202010151445469_AddAFirstData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010280846008_identity.cs" />
+    <Compile Include="Migrations\202010280846008_identity.designer.cs">
+      <DependentUpon>202010280846008_identity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010280918286_identity1.cs" />
+    <Compile Include="Migrations\202010280918286_identity1.designer.cs">
+      <DependentUpon>202010280918286_identity1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010281613062_identity11.cs" />
+    <Compile Include="Migrations\202010281613062_identity11.designer.cs">
+      <DependentUpon>202010281613062_identity11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010281743193_album.cs" />
+    <Compile Include="Migrations\202010281743193_album.designer.cs">
+      <DependentUpon>202010281743193_album.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AlbumRepository.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\GenreRepository.cs" />
+    <Compile Include="Repositories\RepositoryService\SearchHelpercs.cs" />
+    <Compile Include="Repositories\SongWriterRepository.cs" />
+    <Compile Include="Repositories\TrackRepository.cs" />
+    <Compile Include="UnitOfWork\UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Accord.Text">
+      <Version>3.8.2-alpha</Version>
+    </PackageReference>
+    <PackageReference Include="Autofac">
+      <Version>5.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Autofac.Mvc5">
+      <Version>5.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="EntityFramework">
+      <Version>6.4.4</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.Identity.Core">
+      <Version>2.2.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <Version>2.2.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.Identity.Owin">
+      <Version>2.2.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Owin.Host.SystemWeb">
+      <Version>4.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="StyleCop.Analyzers">
+      <Version>1.2.0-beta.261</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="T4MVC">
+      <Version>4.2.4</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DomainLogic\DomainLogic.csproj">
+      <Project>{628307d1-5b15-4e71-b788-6c5a6f2ae155}</Project>
+      <Name>DomainLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
+    <None Include="App.Config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202010151445469_AddAFirstData.resx">
+      <DependentUpon>202010151445469_AddAFirstData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010280846008_identity.resx">
+      <DependentUpon>202010280846008_identity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010280918286_identity1.resx">
+      <DependentUpon>202010280918286_identity1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010281613062_identity11.resx">
+      <DependentUpon>202010281613062_identity11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010281743193_album.resx">
+      <DependentUpon>202010281743193_album.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

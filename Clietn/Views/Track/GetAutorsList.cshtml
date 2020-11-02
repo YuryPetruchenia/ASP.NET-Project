@@ -1,0 +1,26 @@
+﻿@model List<Clietn.Models.ViewModels.AutorViewModel>
+@{
+    ViewBag.Title = "GetAutorsList";
+}
+
+<h2>GetAutorsList</h2>
+
+@foreach (var item in Model)
+{
+    <form method="post" action="/Track/GetUserPlaylist">
+
+        <input type="hidden" value="@item.AutorId" name="BookId" />
+
+        <div class="col-lg-3 col-sm-6 col-12">
+            <button class="album">
+                <img class="bottom-img"
+                     src="~/Content/bitmap.png" alt="Alternate Text" />
+                <p>
+                    @item.AutorName
+                </p>
+            </button>
+        </div>
+    </form>
+}
+
+<link href="@Url.Content("~/Content/AlbumStyle.css")" rel="stylesheet" type="text/css" />

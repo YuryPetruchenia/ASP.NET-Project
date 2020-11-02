@@ -1,0 +1,28 @@
+﻿@model List<Clietn.Models.ViewModels.AlbumViewModel>
+@{
+    ViewBag.Title = "GetAlbumsList";
+}
+
+<h2>GetAlbumsList</h2>
+
+@foreach (var item in Model)
+{
+    <form method="post" action="/Track/GetAlbumsList">
+
+        <input type="hidden" value="@item.AlbumName" name="BookId" />
+
+        <div class="col-lg-3 col-sm-6 col-12">
+            <button class="album">
+                <img class="bottom-img" src="~/Content/Album/Vinil.png" alt="Alternate Text" />
+                <p>
+                    @item.AlbumName
+                </p>
+                <p>
+                    @item.AlbumSongWriter
+                </p>
+            </button>
+        </div>
+    </form>
+}
+
+@Styles.Render("~/Content/Album/Style.css");

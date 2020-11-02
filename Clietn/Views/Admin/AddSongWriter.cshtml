@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "AddSongWriter";
+}
+
+<h2>AddSongWriter</h2>
+
+<div class="row">
+    <div class="col-md-8">
+        <section id="AddSongWriterForm">
+            @using (Html.BeginForm("AddSongWriter", "Admin", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="form-group">
+                    @Html.Label("Name", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBox("Name", "", new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Age", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBox("Age", "", new { @class = "form-control", type = "number" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Info", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBox("Info", "", new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Genre", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("Genre", ViewBag.Genres as SelectList, " Plaese select item ", new { @class = "ddl" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-default" value="Add" />
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+</div>
+
+@Html.ActionLink("Back to toolth page", "StartAdmin", "Admin")
+
+@Styles.Render("~/Content/Admin/AdminViewsStyle.css")

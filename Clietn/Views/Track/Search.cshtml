@@ -1,0 +1,88 @@
+﻿@model Clietn.Models.ViewModels.SearchViewModel
+@{
+    ViewBag.Title = "Serch";
+}
+
+<h2>Serch</h2>
+
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a data-toggle="tab" href="#description">Tracks</a>
+    </li>
+    <li>
+        <a data-toggle="tab" href="#characteristics">Albums</a>
+    </li>
+    <li>
+        <a data-toggle="tab" href="#opinion">Autors</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="description">
+        Here is all Tracks
+
+        @foreach (var item in Model.Songs)
+        {
+            <div class="main">
+
+                <a class="playButton" href="#">&#9658;</a>
+                <div class="songWriter">@item.SongWriter &nbsp;—&nbsp; </div>
+                <div class="songTitle">@item.SongTitle</div>
+
+            </div>
+        }
+
+        <link href="@Url.Content("~/Content/TrackStyle.css")" rel="stylesheet" type="text/css" />
+
+      
+
+    </div>
+    <div class="tab-pane" id="characteristics">
+        Here is all Albums
+
+        @foreach (var item in Model.Albums)
+        {
+            <form method="post" action="/Track/GetAlbumsList">
+
+                <input type="hidden" value="@item.AlbumName" name="Album" />
+
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <button class="album">
+                        <img class="bottom-img"
+                             src="~/Content/bitmap.png" alt="Alternate Text" />
+                        <p>
+                            @item.AlbumName
+                        </p>
+                        <p>
+                            @item.AlbumSongWriter
+                        </p>
+                    </button>
+                </div>
+            </form>
+        }
+
+        <link href="@Url.Content("~/Content/AlbumStyle.css")" rel="stylesheet" type="text/css" />
+    </div>
+    <div class="tab-pane" id="opinion">
+        Here id all SongWriter
+
+        @foreach (var item in Model.Autors)
+        {
+            <form method="post" action="/Track/GetAutorsList">
+
+                <input type="hidden" value="@item.AutorName" name="Autor" />
+
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <button class="album">
+                        <img class="bottom-img"
+                             src="~/Content/bitmap.png" alt="Alternate Text" />
+                        <p>
+                            @item.AutorName
+                        </p>
+                    </button>
+                </div>
+            </form>
+        }
+
+        <link href="@Url.Content("~/Content/AlbumStyle.css")" rel="stylesheet" type="text/css" />
+    </div>
+</div>

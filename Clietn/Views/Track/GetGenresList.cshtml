@@ -1,0 +1,27 @@
+﻿@model List<string>
+@{
+    ViewBag.Title = "GetGenresList";
+}
+
+<h2>GetGenresList</h2>
+
+
+@foreach (var item in Model)
+{
+    <form method="post" action="/Track/GetGenresList">
+
+        <input type="hidden" value="@item" name="GenreName" />
+
+        <div class="col-lg-3 col-sm-6 col-12">
+            <button class="album">
+                <img class="bottom-img"
+                     src="~/Content/Album/Vinil.png" alt="Alternate Text" />
+                <p>
+                    @item
+                </p>
+            </button>
+        </div>
+    </form>
+}
+
+@Styles.Render("~/Content/Album/Style.css");
