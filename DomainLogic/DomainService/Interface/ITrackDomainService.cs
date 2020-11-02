@@ -1,17 +1,19 @@
-﻿using System.Collections.Generic;
-using DomainLogic.Model;
+﻿using DomainLogic.Model;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 namespace DomainLogic.DomainService.Interface
 {
     public interface ITrackDomainService
     {
-        List<Track> GetTrackByTitle(string trackTitle);
+        List<Track> GetTrackByTitle(string TrackTitle);
 
-        List<Track> GetTracksBySongWriter(string songWriterName);
+        List<Track> GetTracksBySongWriter(string SongWriterName);
 
-        List<Track> GetTracksByAlbum(string albumTitle);
+        List<Track> GetTracksByAlbum(string AlbumTitle);
 
-        List<Track> GetTracksByGenre(string genres);
+        List<Track> GetTracksByGenre(string Genres);
 
         void AddTrackToDB(Track track);
     }

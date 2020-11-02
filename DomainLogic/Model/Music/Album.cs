@@ -17,5 +17,6 @@ namespace DomainLogic.Model
         public SongWriter SongWriter { get; set; }
 
         public string Info { get; set; }
+
     }
 }

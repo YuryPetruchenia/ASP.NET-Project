@@ -16,17 +16,17 @@
 
         public void AddGenreToDB(Genre genre)
         {
-            genreRepository.AddGenreToDB(genre);
+            this.genreRepository.AddGenreToDB(genre);
         }
 
         public List<string> GetAllGenre()
         {
-            return genreRepository.GetAllGenre();
+            return this.genreRepository.GetAllGenre();
         }
 
-        public Genre GetGenreByName(string genreName)
+        public Genre GetGenreByName(string GenreName)
         {
-            return genreRepository.GetGenreByName(genreName);
+            return this.genreRepository.GetGenreByName(GenreName);
         }
     }
 }

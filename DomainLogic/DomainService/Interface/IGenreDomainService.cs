@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
-using DomainLogic.Model;
+﻿using DomainLogic.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DomainLogic.DomainService.Interface
 {
@@ -9,6 +13,6 @@ namespace DomainLogic.DomainService.Interface
 
         void AddGenreToDB(Genre genre);
 
-        Genre GetGenreByName(string genreName);
+        Genre GetGenreByName(string GenreName);
     }
 }

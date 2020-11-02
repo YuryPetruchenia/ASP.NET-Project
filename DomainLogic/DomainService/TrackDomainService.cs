@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using DomainLogic.DomainService.Interface;
+﻿using DomainLogic.DomainService.Interface;
 using DomainLogic.Model;
 using DomainLogic.Repositories;
+using System.Collections.Generic;
 
 namespace DomainLogic.DomainService
 {
@@ -19,24 +19,24 @@ namespace DomainLogic.DomainService
             trackRepository.AddTrackToDB(track);
         }
 
-        public List<Track> GetTrackByTitle(string trackTitle)
+        public  List<Track> GetTrackByTitle(string TrackTitle)
         {
-             return trackRepository.GetTracksByTitle(trackTitle);
+             return  trackRepository.GetTracksByTitle(TrackTitle);
         }
 
-        public List<Track> GetTracksByAlbum(string albumTitle)
+        public List<Track> GetTracksByAlbum(string AlbumTitle)
         {
-            return trackRepository.GetTracksByAlbum(albumTitle);
+            return  trackRepository.GetTracksByAlbum(AlbumTitle);
         }
 
-        public List<Track> GetTracksByGenre(string genres)
+        public List<Track> GetTracksByGenre(string Genres)
         {
-            return trackRepository.GetTracksByGenre(genres);
+            return  trackRepository.GetTracksByGenre(Genres);
         }
 
-        public List<Track> GetTracksBySongWriter(string songWriterName)
+        public  List<Track> GetTracksBySongWriter(string SongWriterName)
         {
-            return trackRepository.GetTracksBySongWriter(songWriterName);
+            return  trackRepository.GetTracksBySongWriter(SongWriterName); 
         }
     }
 }

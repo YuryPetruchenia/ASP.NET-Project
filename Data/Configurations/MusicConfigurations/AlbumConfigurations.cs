@@ -1,14 +1,14 @@
-﻿using System.Data.Entity.ModelConfiguration;
-using DomainLogic.Model;
+﻿using DomainLogic.Model;
+using System.Data.Entity.ModelConfiguration;
 
 namespace Data.Configurations.MusicConfigurations
 {
-    public class AlbumConfigurations : EntityTypeConfiguration<Album>
+    class AlbumConfigurations :EntityTypeConfiguration<Album>
     {
         public AlbumConfigurations()
         {
             HasKey(s => s.AlbumId);
-            HasRequired(c => c.Genre).WithOptional().WillCascadeOnDelete(false);
+            HasRequired(c => c.Genre).WithOptional().WillCascadeOnDelete(false) ;
             HasRequired(c => c.SongWriter).WithOptional().WillCascadeOnDelete(false);
         }
     }

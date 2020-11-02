@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using DomainLogic.Model;
+﻿using DomainLogic.Model;
+using System.Collections.Generic;
 
 namespace DomainLogic.Repositories
 {

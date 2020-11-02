@@ -1,7 +1,8 @@
-﻿using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using Data.Context;
+﻿using Data.Context;
 using DomainLogic.UnitOfWork;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Linq;
 
 namespace Data.UnitOfWork
 {
@@ -14,8 +15,7 @@ namespace Data.UnitOfWork
             this.db = db;
         }
 
-        public DbSet<TEntity> Set<TEntity>()
-            where TEntity : class
+        public DbSet<TEntity> Set<TEntity>() where TEntity : class
         {
             return db.Set<TEntity>();
         }

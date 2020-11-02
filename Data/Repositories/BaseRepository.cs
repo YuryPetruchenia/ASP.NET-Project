@@ -1,11 +1,10 @@
-﻿using System;
+﻿using DomainLogic.Repositories;
+using System;
 using System.Collections.Generic;
-using DomainLogic.Repositories;
 
 namespace Data.Repositories
 {
-    public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity>
-        where TEntity : class
+    public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
         public void Create(TEntity entity)
         {

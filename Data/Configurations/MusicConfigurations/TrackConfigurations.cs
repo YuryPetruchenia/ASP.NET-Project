@@ -1,10 +1,10 @@
-﻿using System.Data.Entity.ModelConfiguration;
+﻿using DomainLogic.Model;
+using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using DomainLogic.Model;
 
 namespace Data.Configurations.MusicConfigurations
 {
-    public class TrackConfigurations : EntityTypeConfiguration<Track>
+    class TrackConfigurations : EntityTypeConfiguration<Track>
     {
        public TrackConfigurations()
         {

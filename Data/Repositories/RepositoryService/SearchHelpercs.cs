@@ -1,22 +1,27 @@
-﻿using System.Collections.Generic;
+﻿using Accord.MachineLearning.Text.Stemmers;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Dynamic;
 using System.Linq;
-using Accord.MachineLearning.Text.Stemmers;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Data.Repositories.RepositoryService
 {
     public static class SearchHelpercs
     {
-        private static RussianStemmer _russianStemmers = new RussianStemmer();
+        private static RussianStemmer RussianStemmers = new RussianStemmer();
 
-        private static EnglishStemmer _englishStemmer = new EnglishStemmer();
+        private static EnglishStemmer EnglishStemmer = new EnglishStemmer();
 
-        public static List<string> Helper(string name)
+        public static List<string> Helper(string Name)
         {
-            var result = name.Split(' ')
+            var result = Name.Split(' ')
             .Where(x => !string.IsNullOrWhiteSpace(x))
-            .Select(x => _russianStemmers.Stem(x))
-            .ToList();
-            return result;
+            .Select(x => RussianStemmers.Stem(x))
+            .ToList() ;
+            return result; 
         }
     }
 }

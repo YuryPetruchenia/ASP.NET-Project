@@ -2,13 +2,13 @@
 
 namespace DomainLogic.Repositories
 {
-    public interface IBaseRepository<TEntity>
-        where TEntity : class
+    public interface IBaseRepository<TEntity> where TEntity : class
     {
         void Create(TEntity entity);
 
         void Update(TEntity entitry);
 
         void Delete(TEntity entity);
+
     }
 }

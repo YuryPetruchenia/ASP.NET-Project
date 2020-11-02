@@ -13,7 +13,7 @@ namespace DomainLogic.Model
         public int Age { get; set; }
 
         public string Email { get; set; }
-
+            
         public Subscription Subscription { get; set; }
     }
 }

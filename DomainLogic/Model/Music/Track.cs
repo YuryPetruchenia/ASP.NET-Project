@@ -15,5 +15,6 @@ namespace DomainLogic.Model
         public Album Album { get; set; }
 
         public Genre Genre { get; set; }
+
     }
 }

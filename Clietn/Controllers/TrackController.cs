@@ -75,7 +75,7 @@ namespace Clietn.Controllers
         public virtual ActionResult GetAutorsList(string autor)
         {
             var tracks = trackPresentationService.GetTracksByAutor(autor);
-            TempData["аutor"] = tracks;
+            TempData["autor"] = tracks;
             return RedirectToAction(MVC.Track.GetUserPlayList("autor"));
         }
 
@@ -106,6 +106,7 @@ namespace Clietn.Controllers
         public virtual ActionResult PlayerPartial()
         {
             var songTitle = "Toxicity";
+
             return PartialView(songTitle);
         }
 

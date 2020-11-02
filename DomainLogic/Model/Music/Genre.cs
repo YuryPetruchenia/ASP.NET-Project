@@ -11,5 +11,6 @@ namespace DomainLogic.Model
         public int GenreId { get; set; }
 
         public string Name { get; set; }
+
     }
 }

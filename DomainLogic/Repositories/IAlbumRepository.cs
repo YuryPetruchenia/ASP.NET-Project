@@ -9,16 +9,16 @@
 
     public interface IAlbumRepository : IBaseRepository<Album>
     {
-       List<Album> GetAlbumsByName(string albumName);
+       List<Album> GetAlbumsByName(string AlbumName);
 
-       List<Album> GetAlbumsBySongTitle(string songTitle);
+        List<Album> GetAlbumsBySongTitle(string SongTitle);
 
-       List<Album> GetAlbumsBySongWriter(string songWriterName);
+       List<Album> GetAlbumsBySongWriter(string SongWriterName);
 
-       void AddAlbumToDB(Album album);
+        void AddAlbumToDB(Album album);
 
-       List<string> GetAllAlbum();
+        List<string> GetAllAlbum();
 
-       Album GetAlbumByName(string albumName);
+        Album GetAlbumByName(string AlbumName);
     }
 }

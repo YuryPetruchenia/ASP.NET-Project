@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using DomainLogic.Model;
+﻿using DomainLogic.Model;
+using System.Collections.Generic;
 
 namespace DomainLogic.DomainService.Interface
 {
@@ -8,15 +8,15 @@ namespace DomainLogic.DomainService.Interface
        List<SongWriter> GetSongWritersByName(string songWriterName);
 
        List<SongWriter> GetSongWritersByTracksTitle(string songTitle);
-
+ 
        List<SongWriter> GetSongWritersByAlbumTitle(string albumTitle);
 
-       List<SongWriter> GetSongWritersByGenres(string genres);
+       List<SongWriter> GetSongWritersByGenres( string genres);
 
-       void AddSongWriterToDB(SongWriter songWriter);
+        void AddSongWriterToDB(SongWriter songWriter);
 
-       List<string> GetAllSongWriter();
+        List<string> GetAllSongWriter();
 
-       SongWriter GetSongWriterByName(string songWriterName);
+        SongWriter GetSongWriterByName(string songWriterName);
     }
 }

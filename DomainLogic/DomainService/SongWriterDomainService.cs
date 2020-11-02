@@ -1,7 +1,11 @@
-﻿using System.Collections.Generic;
-using DomainLogic.DomainService.Interface;
+﻿using DomainLogic.DomainService.Interface;
 using DomainLogic.Model;
 using DomainLogic.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DomainLogic.DomainService
 {
@@ -24,29 +28,29 @@ namespace DomainLogic.DomainService
            return songWriterRepository.GetAllSongWriter();
         }
 
-        public SongWriter GetSongWriterByName(string songWriterName)
+        public SongWriter GetSongWriterByName(string SongWriterName)
         {
-            return songWriterRepository.GetSongWriterByName(songWriterName);
+            return songWriterRepository.GetSongWriterByName(SongWriterName);
         }
 
-        public List<SongWriter> GetSongWritersByAlbumTitle(string albumTitle)
+        public List<SongWriter> GetSongWritersByAlbumTitle(string AlbumTitle)
         {
-            return songWriterRepository.GetSongWritersByAlbumTitle(albumTitle);
+            return songWriterRepository.GetSongWritersByAlbumTitle(AlbumTitle);
         }
 
-        public List<SongWriter> GetSongWritersByGenres(string genres)
+        public List<SongWriter> GetSongWritersByGenres(string Genres)
         {
-            return songWriterRepository.GetSongWritersByGenres(genres);
+            return songWriterRepository.GetSongWritersByGenres(Genres);
         }
 
-        public List<SongWriter> GetSongWritersByName(string songWriterName)
+        public List<SongWriter> GetSongWritersByName(string SongWriterName)
         {
-            return songWriterRepository.GetSongWritersByName(songWriterName);
+            return songWriterRepository.GetSongWritersByName(SongWriterName);
         }
 
-        public List<SongWriter> GetSongWritersByTracksTitle(string songTitle)
+        public List<SongWriter> GetSongWritersByTracksTitle(string SongTitle)
         {
-            return songWriterRepository.GetSongWritersByTracksTitle(songTitle);
+            return songWriterRepository.GetSongWritersByTracksTitle(SongTitle);
         }
     }
 }

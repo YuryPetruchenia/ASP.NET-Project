@@ -3,7 +3,7 @@ using DomainLogic.Model;
 
 namespace Data.Configurations.MusicConfigurations
 {
-    public class SongWriterConfigurations : EntityTypeConfiguration<SongWriter>
+    class SongWriterConfigurations : EntityTypeConfiguration<SongWriter>
     {
         public SongWriterConfigurations()
         {

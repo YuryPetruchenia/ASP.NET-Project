@@ -7,7 +7,6 @@ namespace DomainLogic.UnitOfWork
     {
         DbSet<TEntity> Set<TEntity>()
             where TEntity : class;
-
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity)
            where TEntity : class;
 

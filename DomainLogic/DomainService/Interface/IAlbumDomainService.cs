@@ -1,20 +1,20 @@
-﻿using System.Collections.Generic;
-using DomainLogic.Model;
+﻿using DomainLogic.Model;
+using System.Collections.Generic;
 
 namespace DomainLogic.DomainService.Interface
 {
     public interface IAlbumDomainService
     {
-        List<Album> GetAlbumsByName(string albumName);
+        List<Album> GetAlbumsByName(string AlbumName);
 
-        List<Album> GetAlbumsBySongTitle(string songTitle);
+        List<Album> GetAlbumsBySongTitle(string SongTitle);
 
-        List<Album> GetAlbumsBySongWriter(string songWriterName);
+        List<Album> GetAlbumsBySongWriter(string SongWriterName);
 
         void AddAlbumToDB(Album album);
 
         List<string> GetAllAlbum();
 
-        Album GetAlbumByName(string albumName);
+        Album GetAlbumByName(string AlbumName);
     }
 }

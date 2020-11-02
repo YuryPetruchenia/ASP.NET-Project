@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using DomainLogic.Model;
+﻿using DomainLogic.Model;
 using DomainLogic.Repositories;
 using DomainLogic.UnitOfWork;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Data.Repositories
 {
     public class GenreRepository : BaseRepository<Genre>, IGenreRepository
     {
         private readonly IUnitOfWork unitOfWork;
-
         public GenreRepository(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
@@ -25,11 +24,12 @@ namespace Data.Repositories
         {
             genre = genre is null ? throw new NullReferenceException() : genre;
             unitOfWork.Set<Genre>().Add(genre);
+            unitOfWork.SaveChanges();
         }
 
-        public Genre GetGenreByName(string genreName)
+        public Genre GetGenreByName(string GenreName)
         {
-            return unitOfWork.Set<Genre>().Where(x => x.Name.Equals(genreName)).First();
+            return unitOfWork.Set<Genre>().Where(x => x.Name.Equals(GenreName)).First();
         }
-    }
+    }  
 }

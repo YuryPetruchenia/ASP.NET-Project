@@ -2,7 +2,7 @@
 {
     using System;
     using System.Data.Entity.Migrations;
-
+    
     public partial class identity : DbMigration
     {
         public override void Up()
@@ -76,7 +76,7 @@
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
         }
-
+        
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");

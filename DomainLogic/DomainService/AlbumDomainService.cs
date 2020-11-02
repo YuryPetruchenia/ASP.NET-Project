@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using DomainLogic.DomainService.Interface;
+﻿using DomainLogic.DomainService.Interface;
 using DomainLogic.Model;
 using DomainLogic.Repositories;
+using System.Collections.Generic;
 
 namespace DomainLogic.DomainService
 {
@@ -19,19 +19,19 @@ namespace DomainLogic.DomainService
             albumRepository.AddAlbumToDB(album);
         }
 
-        public List<Album> GetAlbumsByName(string albumName)
+        public List<Album> GetAlbumsByName(string AlbumName)
         {
-            return albumRepository.GetAlbumsByName(albumName);
+            return albumRepository.GetAlbumsByName(AlbumName);
         }
 
-        public List<Album> GetAlbumsBySongTitle(string songTitle)
+        public List<Album> GetAlbumsBySongTitle(string SongTitle)
         {
-            return albumRepository.GetAlbumsBySongTitle(songTitle);
+            return albumRepository.GetAlbumsBySongTitle(SongTitle);
         }
 
-        public List<Album> GetAlbumsBySongWriter(string songWriterName)
+        public List<Album> GetAlbumsBySongWriter(string SongWriterName)
         {
-            return albumRepository.GetAlbumsBySongWriter(songWriterName);
+            return albumRepository.GetAlbumsBySongWriter(SongWriterName);
         }
 
         public List<string> GetAllAlbum()
@@ -39,9 +39,9 @@ namespace DomainLogic.DomainService
             return albumRepository.GetAllAlbum();
         }
 
-        Album IAlbumDomainService.GetAlbumByName(string albumName)
+        Album IAlbumDomainService.GetAlbumByName(string AlbumName)
         {
-            return albumRepository.GetAlbumByName(albumName);
+            return albumRepository.GetAlbumByName(AlbumName);
         }
     }
 }

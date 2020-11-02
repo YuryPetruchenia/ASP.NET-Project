@@ -1,17 +1,17 @@
-﻿using System.Collections.Generic;
-using DomainLogic.Model;
+﻿using DomainLogic.Model;
+using System.Collections.Generic;
 
 namespace DomainLogic.Repositories
 {
     public interface ITrackRepository : IBaseRepository<Track>
     {
-        List<Track> GetTracksByTitle(string trackTitle);
+        List<Track> GetTracksByTitle(string TrackTitle);
 
-        List<Track> GetTracksBySongWriter(string songWriterName);
+        List<Track> GetTracksBySongWriter(string SongWriterName);
 
-        List<Track> GetTracksByAlbum(string albumTitle);
+        List<Track> GetTracksByAlbum(string AlbumTitle);
 
-        List<Track> GetTracksByGenre(string genres);
+        List<Track> GetTracksByGenre(string Genres);
 
         void AddTrackToDB(Track track);
     }

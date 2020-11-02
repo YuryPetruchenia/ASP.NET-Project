@@ -2,7 +2,7 @@
 {
     using System;
     using System.Data.Entity.Migrations;
-
+    
     public partial class AddAFirstData : DbMigration
     {
         public override void Up()
@@ -19,6 +19,7 @@
                 .ForeignKey("dbo.Genres", t => t.AlbumId)
                 .ForeignKey("dbo.SongWriters", t => t.AlbumId)
                 .Index(t => t.AlbumId);
+            
             CreateTable(
                 "dbo.Genres",
                 c => new
@@ -30,6 +31,7 @@
                 .PrimaryKey(t => t.GenreId)
                 .ForeignKey("dbo.SongWriters", t => t.SongWriter_SongWriterId)
                 .Index(t => t.SongWriter_SongWriterId);
+            
             CreateTable(
                 "dbo.SongWriters",
                 c => new
@@ -40,6 +42,7 @@
                         Info = c.String(),
                     })
                 .PrimaryKey(t => t.SongWriterId);
+            
             CreateTable(
                 "dbo.Subscriptions",
                 c => new
@@ -49,6 +52,7 @@
                 .PrimaryKey(t => t.SubscriptionId)
                 .ForeignKey("dbo.Users", t => t.SubscriptionId)
                 .Index(t => t.SubscriptionId);
+            
             CreateTable(
                 "dbo.Tracks",
                 c => new
@@ -69,6 +73,7 @@
                 .Index(t => t.Genre_GenreId)
                 .Index(t => t.SongWriter_SongWriterId)
                 .Index(t => t.Subscription_SubscriptionId);
+            
             CreateTable(
                 "dbo.Users",
                 c => new
@@ -80,6 +85,7 @@
                         Email = c.String(),
                     })
                 .PrimaryKey(t => t.UserId);
+            
             CreateTable(
                 "dbo.SubscriptionTracks",
                 c => new
@@ -92,8 +98,9 @@
                 .ForeignKey("dbo.Tracks", t => t.Track_TrackId, cascadeDelete: true)
                 .Index(t => t.Subscription_SubscriptionId)
                 .Index(t => t.Track_TrackId);
+            
         }
-
+        
         public override void Down()
         {
             DropForeignKey("dbo.Subscriptions", "SubscriptionId", "dbo.Users");

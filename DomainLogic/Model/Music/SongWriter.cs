@@ -3,7 +3,7 @@
 namespace DomainLogic.Model
 {
     public class SongWriter
-    {
+    { 
         public int SongWriterId { get; set; }
 
         public string Name { get; set; }
@@ -13,5 +13,6 @@ namespace DomainLogic.Model
         public string Info { get; set; }
 
         public ICollection<Genre> Genres { get; set; }
+
     }
 }

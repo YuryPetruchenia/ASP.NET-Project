@@ -9,13 +9,16 @@ namespace DomainLogic.Model
     public class Subscription
     {
         public int SubscriptionId { get; set; }
-
-        public DateTime SubscriptionIsValidUntil { get; set; }
+        
+        DateTime SubscriptionIsValidUntil { get; set; }
 
         public ICollection<Track> PlayListDay { get; set; }
+
+        //public ICollection<Track> MyCollectionOfTracks { get; set; }
 
         public ICollection<Track> LikedSongs { get; set; }
 
         public User User { get; set; }
+
     }
 }
